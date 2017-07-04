@@ -1,5 +1,5 @@
 # Sutham
-Digitising garbage management
+Digitalization of garbage management
 
 
 Checkout more!
