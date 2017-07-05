@@ -1,0 +1,70 @@
+{% extends "main/layouts/base.djt" %}
+{% load staticfiles %}
+
+{%block content%}
+
+<div class="ui container">
+
+	{% if message %}
+	<div class="ui negative message" id="message">
+		<i class="close icon"></i>
+		<div class="header">
+		  
+		</div>
+		<div>
+		  <p>{{message}}</p>
+		</div>
+	</div>
+	{% endif %}
+		<form class="ui form" action="/main/signup/" method="POST">
+		<div class="ui grid">
+			{% csrf_token %}
+			<div class="two wide column"></div> 
+			<div class="six wide column">
+				<div class="ui fluid segment">
+						<div class="field">
+				              <label>First Name</label>
+				              <input name="firstname" placeholder="FirstName" type="text" id="firstname" required>
+				        </div>
+				        <div class="field">
+				              <label>Last Name</label>
+				              <input name="lastname" placeholder="LastName" type="text" id="lastname" required>
+				        </div>
+				        <div class="field">
+				              <label>Email-id</label>
+				              <input name="email" placeholder="Email-id" type="text" id="email" required>
+				        </div>
+				        <div class="field">
+				              <label>Password</label>
+				              <input name="password" placeholder="Password" type="password" id="password" required>
+				        </div>
+				        <div class="field">
+				              <label>Confirm-Password</label>
+				              <input name="confirm_password" placeholder="ConfirmPassword" type="password" id="confirm_password" required>
+				        </div>
+				</div>
+			</div>
+			<div class="six wide column">
+				<div class="ui fluid segment">
+					<div class="field">
+				              <label>Organisation Name</label>
+				              <input name="organisation" placeholder="Organisation" type="text" id="organisation" required>
+				        </div>
+				        <div class="field">
+				              <label>Address</label>
+				              <textarea name="address" id="address" required></textarea>
+				        </div>
+				        <div class="field">
+				              <label>Mobile Number</label>
+				              <input name="mobile_no" placeholder="Mobile Number" type="text" id="mobile_no" required>
+				        </div>
+				</div>
+			</div>
+			<div class="two wide column"> </div>
+			<button class="ui fluid button green" type="submit" id="signup">Signup</button>
+		</div>
+		</form>
+
+</div>
+
+{% endblock %}

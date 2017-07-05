@@ -1,0 +1,39 @@
+{% extends "main/layouts/base.djt" %}
+{% load staticfiles %}
+
+{%block content%}
+
+<div class="ui container">
+	<div class="ui grid">
+		<div class="two wide column">
+			
+		</div>
+		<div class="twelve wide column">
+			<a href="/main/uploadprints/" class="ui green fluid button">Add Blue Prints</a>
+			<div class="ui divider"></div>
+			<br>
+			{%if blueprints%}
+			<table class="ui fluid celled padded table">
+				<thead>
+				    <tr>
+					    <th>Id</th>
+					    <th>Name</th>
+					    <th>Description</th>
+					    <th>Get Print</th>
+				  	</tr>
+				</thead>
+				{% for p in blueprints %}
+					<tr>
+						<td>{{p.id}}</td>
+						<td>{{p.name}}</td>
+						<td>{{p.desp}}</td>
+						<td><a href="{{p.blueprint.url}}" class="ui fluid button yellow">Get Print</a></td>
+					</tr> 
+				{% endfor %}
+			</table>
+			{%else%}
+				<h2>No blueprints uploaded</h2>
+			{%endif%}
+		</div>
+	</div>
+{%endblock%}
